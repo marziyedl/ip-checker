@@ -1,14 +1,24 @@
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+@import "css/_variables.scss";
+
+
+
 
 html {
   line-height: 1.15; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
 }
-
+@font-face {
+  font-family: Rubik-Light;
+  src: url('./assets/fonts/Rubik/Rubik-light.ttf') format('truetype');
+}
 body {
   margin: 0;
 }
-
+* {
+  font-family: Rubik-Light;
+  font-size: 18px;
+}
 main {
   display: block;
 }
@@ -87,8 +97,9 @@ textarea {
 }
 
 button,
-input {
-  /* 1 */
+input,
+button :active input :focus {
+  outline: none;
   overflow: visible;
 }
 
@@ -152,15 +163,6 @@ textarea {
   height: auto;
 }
 
-[type="search"] {
-  -webkit-appearance: textfield; /* 1 */
-  outline-offset: -2px; /* 2 */
-}
-
-[type="search"]::-webkit-search-decoration {
-  -webkit-appearance: none;
-}
-
 ::-webkit-file-upload-button {
   -webkit-appearance: button; /* 1 */
   font: inherit; /* 2 */
@@ -180,4 +182,57 @@ template {
 
 [hidden] {
   display: none;
+}
+
+//  flex useful css classes
+.d-flex {
+  display: flex;
+}
+.flex-row {
+  flex-direction: row;
+}
+.flex-column {
+  flex-direction: column;
+}
+.flex-wrap {
+  flex-wrap: wrap;
+}
+.flex-nowrap {
+  flex-wrap: nowrap;
+}
+.flex-justify-start {
+  justify-content: flex-start;
+}
+.flex-justify-end {
+  justify-content: flex-end;
+}
+.flex-justify-center {
+  justify-content: center;
+}
+.flex-justify-between {
+  justify-content: space-between;
+}
+.flex-justify-around {
+  justify-content: space-around;
+}
+.flex-items-start {
+  align-items: flex-start;
+}
+.flex-items-end {
+  align-items: flex-end;
+}
+.flex-items-center {
+  align-items: center;
+}
+.flex-self-end {
+  align-self: flex-end;
+}
+.color-white {
+  color: #fff;
+}
+.bg-dark {
+  background-color: #333;
+}
+.text-muted {
+  color: #777;
 }

@@ -1,0 +1,47 @@
+//Responsive Breakpoints
+
+$w-breakpoints: (
+  sm: 440px,
+  md: 768px,
+  lg: 1440px,
+);
+$h-breakpoints: (
+  sm: 550px,
+  md: 720px,
+  lg: 1200px,
+);
+
+@mixin width-media-below($breakpoint) {
+  // If the breakpoint exists in the map.
+  @if map-has-key($w-breakpoints, $breakpoint) {
+    // Get the breakpoint value.
+    $breakpoint-value: map-get(
+      $w-breakpoints,
+      $breakpoint
+    ); // Write the media query.
+    @media (max-width: ($breakpoint-value - 1)) {
+      @content;
+    }
+    // If the breakpoint doesn't exist in the map.
+  } @else {
+    // Log a warning.
+    @warn "Invalid breakpoint: #{$breakpoint}.";
+  }
+}
+@mixin height-media-below($breakpoint) {
+  // If the breakpoint exists in the map.
+  @if map-has-key($h-breakpoints, $breakpoint) {
+    // Get the breakpoint value.
+    $breakpoint-value: map-get(
+      $h-breakpoints,
+      $breakpoint
+    ); // Write the media query.
+    @media (max-height: ($breakpoint-value - 1)) {
+      @content;
+    }
+    // If the breakpoint doesn't exist in the map.
+  } @else {
+    // Log a warning.
+    @warn "Invalid breakpoint: #{$breakpoint}.";
+  }
+}
