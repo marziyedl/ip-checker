@@ -1,0 +1,53 @@
+@import "css/_mixin.scss";
+
+:host {
+  position: relative;
+}
+.form-bg {
+  background: url("../../../../../assets/images/pattern-bg.png") no-repeat
+    center;
+  background-size: cover;
+  height: 30vh;
+
+  @include width-media-below(sm) {
+    height: 40vh;
+  }
+
+  form {
+    display: inline-flex;
+    width: 50%;
+
+    .search-input {
+      height: 3rem;
+      padding: 0.5rem;
+      border: 0;
+      background: #fff;
+      border-top-left-radius: 0.5rem;
+      border-bottom-left-radius: 0.5rem;
+      border-top-style: none;
+      flex-grow: 2;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    .btn {
+      border: none;
+      border-top-right-radius: 0.5rem;
+      border-bottom-right-radius: 0.5rem;
+      &::after {
+        content: "";
+        background: url("../../../../../assets/images/icon-arrow.svg") no-repeat
+          center;
+        padding: 1rem;
+      }
+      &:hover,
+      &:focus {
+        cursor: pointer;
+      }
+    }
+
+    @include width-media-below(sm) {
+      width: 80%;
+    }
+  }
+}
