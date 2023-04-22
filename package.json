@@ -8,6 +8,11 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
+  "config": {
+    "commitizen": {
+      "path": "git-cz"
+    }
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "^15.2.0",
