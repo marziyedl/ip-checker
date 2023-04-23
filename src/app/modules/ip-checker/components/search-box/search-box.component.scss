@@ -1,13 +1,12 @@
 @import "css/_mixin.scss";
 
-:host {
-  position: relative;
-}
+
 .form-bg {
   background: url("../../../../../assets/images/pattern-bg.png") no-repeat
     center;
   background-size: cover;
   height: 30vh;
+  position: relative;
 
   @include width-media-below(sm) {
     height: 40vh;
