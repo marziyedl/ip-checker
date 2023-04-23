@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { IpCheckerModule } from './modules/ip-checker/ip-checker.module';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { HttpInterceptorService } from './interceptors/http.interceptor';
 
 @NgModule({
   declarations: [
@@ -10,9 +12,15 @@ import { IpCheckerModule } from './modules/ip-checker/ip-checker.module';
   ],
   imports: [
     BrowserModule,
-    IpCheckerModule
+    IpCheckerModule,
+    HttpClientModule
+
+
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true }
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
