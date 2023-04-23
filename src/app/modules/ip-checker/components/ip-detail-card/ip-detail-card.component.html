@@ -1,20 +1,23 @@
 <section class="card-wrapper">
-  <div class="card">
+  <div class="card" >
+    <h2  *ngIf="!locationDetail"> please search an IP address for show details...</h2>
+    <ng-container *ngIf="locationDetail">
     <div class="card-section">
       <b class="text-muted">IP address</b>
-      <strong> 125.5.63.5 </strong>
+      <strong> {{locationDetail.ip || "---"}} </strong>
     </div>
     <div class="card-section">
         <b class="text-muted">Location</b>
-        <strong> 125.5.63.5 </strong>
+        <strong>{{locationDetail.location.city || "---"}}, {{locationDetail.location.region || "---"}}, {{locationDetail.location.postalCode || "---"}} </strong>
       </div>
       <div class="card-section">
         <b class="text-muted">Timezone</b>
-        <strong> 125.5.63.5 </strong>
+        <strong> {{locationDetail.location.timezone || "---"}} </strong>
       </div>
       <div class="card-section">
         <b class="text-muted">isp</b>
-        <strong> 125.5.63.5 </strong>
+        <strong> {{locationDetail.isp || "---"}}</strong>
       </div>
+    </ng-container>
   </div>
 </section>
