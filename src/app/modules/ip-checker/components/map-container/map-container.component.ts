@@ -39,28 +39,18 @@ export class MapContainerComponent implements OnInit {
 
   }
   getCurrentLocation() {
-    if (navigator.geolocation) {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-          (position) => {
-            this.initMarkers(position.coords.latitude, position.coords.longitude)
-          },
-          (error) => {
-            console.log(error)
-          }
-        );
+    if (!navigator.geolocation) return;
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        this.onLocationFound(position.coords.latitude, position.coords.longitude);
+      },
+      (error) => {
+        console.log(error);
       }
-    }
+    );
   }
 
-  initMarkers(lat: number, lng: number) {
-    const initialMarkers =
-    {
-      position: { lat: lat, lng: lng },
-    }
-    this.generateMarker(initialMarkers.position);
-
-  }
+  
   onLocationFound(lat: any, lng: any) {
     this.generateMarker({ lat, lng })
     this.map.flyTo({ lat, lng }, this.options.zoom, {
