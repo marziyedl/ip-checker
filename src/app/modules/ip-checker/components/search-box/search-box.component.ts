@@ -1,4 +1,4 @@
-import {  Component } from '@angular/core';
+import { Component } from '@angular/core';
 import { LocationService } from 'app/services';
 import { tap } from 'rxjs';
 
@@ -21,7 +21,7 @@ export class SearchBoxComponent  {
   }
   onSearchValueChange() {
     if (this.searchValue.length < 6 || !this.IpRegex.test(this.searchValue)) return;
-    this.locationService.searchIPAddressLocation(this.searchValue).subscribe();
+     this.locationService.searchIPAddressLocation(this.searchValue).subscribe();
 
   }
 

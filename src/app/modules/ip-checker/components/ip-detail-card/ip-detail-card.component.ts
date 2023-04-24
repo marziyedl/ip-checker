@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { LocationResponseModel } from 'app/models/locations';
 import { LocationService } from 'app/services';
 
@@ -7,12 +7,18 @@ import { LocationService } from 'app/services';
   templateUrl: './ip-detail-card.component.html',
   styleUrls: ['./ip-detail-card.component.scss']
 })
-export class IpDetailCardComponent {
+export class IpDetailCardComponent implements OnInit {
   locationDetail!: LocationResponseModel;
-  constructor(private locationService: LocationService) {
+  constructor(private locService: LocationService) {
 
-    this.locationService.searchResult.subscribe(returnedData => {
-      this.locationDetail = returnedData    
+  }
+  ngOnInit(): void {
+    this.getIpDetails()
+
+  }
+  getIpDetails() {
+    this.locService.searchResult.subscribe(returnedData => {
+      this.locationDetail = returnedData
     })
   }
 }
