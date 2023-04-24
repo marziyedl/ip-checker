@@ -8,7 +8,7 @@ import { HttpInterceptorService } from './interceptors/http.interceptor';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
