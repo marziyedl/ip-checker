@@ -27,44 +27,9 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 =======
-### Objective
 
-Your task is to connect to an external API to retrieve IP address information and display it like in the provided designs.
 
-### Brief
 
-The challenge is to build out the project to the designs inside the `/design` folder. You will find both a mobile and a desktop version of the design. The designs are in JPG static format. Using JPGs will mean that you'll need to use your best judgment for styles such as `font-size`, `padding` and `margin`. You will find all the required assets in the `/images` folder. The assets are already optimized. To get the IP address location, you'll be using the Wookie IP API:
-
-    https://wookie.codesubmit.io/ipcheck?ip=<IP_ADDRESS>
-
-An example response for IP 8.8.8.8
-
-```json
-{
-	"as": {
-		"asn": 15169,
-		"domain": "https://about.google/intl/en/",
-		"name": "GOOGLE",
-		"route": "8.8.8.0/24",
-		"type": "Content"
-	},
-	"ip": "8.8.8.8",
-	"isp": "Google LLC",
-	"location": {
-		"city": "Mountain View",
-		"country": "US",
-		"geonameId": 5375480,
-		"lat": 37.38605,
-		"lng": -122.08385,
-		"postalCode": "94035",
-		"region": "California",
-		"timezone": "-08:00"
-	}
-}
-```
-
-For authentication, pass the `"Authorization: Bearer WookieIP2022"` header.
-Cache the response in browser storage (local storage, session storage) to avoid making too many requests to the API.
 
 To generate the map, we recommend using [LeafletJS](https://leafletjs.com/), but you are free to use any mapping library of your choice.
 
